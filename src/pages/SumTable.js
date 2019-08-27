@@ -1,9 +1,8 @@
 import { Spin } from 'antd';
-import { SumTable as Table } from 'antd-table-infinity';
+import { SumTable as Table } from '../components/Table';
 import React, { Component } from 'react';
 
-import 'antd-table-infinity/dist/index.css';
-import 'antd-table-infinity/index.css';
+import '../../dist/index.css';
 
 import { columns, fetchData, sumData } from '../stories/Table/mockData';
 

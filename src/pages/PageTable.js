@@ -1,8 +1,7 @@
-import { PageTable as Table } from 'antd-table-infinity';
+import { PageTable as Table } from '../components/Table';
 import React, { Component } from 'react';
 
-import 'antd-table-infinity/dist/index.css';
-import 'antd-table-infinity/index.css';
+import '../../dist/index.css';
 
 import { columns } from '../stories/Table/mockData';
 

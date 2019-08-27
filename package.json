@@ -1,6 +1,6 @@
 {
   "name": "@danieldx/antd-table-infinity",
-  "version": "1.2.3",
+  "version": "1.2.1",
   "scripts": {
     "storybook": "start-storybook -p 9001 -c .storybook",
     "start": "umi dev",
@@ -10,9 +10,9 @@
     "build:umd": "better-npm-run build-umd",
     "build": "yarn clean && yarn build:cjs && yarn build:es && yarn build:umi && yarn build:less",
     "build:less": "lessc src/components/Table/index.less ./index.css",
-    "build:umi": "rimraf dist & DEBUG=umi:* HTML=none umi build",
+    "build:umi": "rimraf dist & cross-env DEBUG=umi:* HTML=none umi build",
     "lint": "eslint ./**/*.jsx  --ext .jsx --ext .js --fix",
-    "prepublishOnly": "npm version patch && yarn build"
+    "prepublishOnly": "yarn build"
   },
   "betterScripts": {
     "build-cjs": {
@@ -55,16 +55,16 @@
     "表格无限滚动加载"
   ],
   "contributors": [
-    "keruyun.com"
+    "danieldx, keruyun.com"
   ],
   "author": "seaeye777@qq.com",
   "bugs": {
-    "url": "https://github.com/Leonard-Li777/antd-table-infinity/issues"
+    "url": "https://github.com/daniel-dx/antd-table-infinity/issues"
   },
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/Leonard-Li777/antd-table-infinity.git"
+    "url": "https://github.com/daniel-dx/antd-table-infinity.git"
   },
   "license": "MIT",
   "description": "An infinite scroll component based on antd table that supports virtual scrolling & high-performance form http://keruyun.com/",
@@ -77,7 +77,6 @@
     "react-dom": ">=16.4.0"
   },
   "dependencies": {
-    "antd-table-infinity": "^1.1.2",
     "intersection-observer": "^0.5.1",
     "lodash.throttle": "^4.1.1"
   },
@@ -104,6 +103,7 @@
     "@storybook/react": "^3.4.10",
     "babel-core": "^6.26.3",
     "better-npm-run": "^0.1.1",
+    "cross-env": "^5.2.0",
     "lodash": "^4.17.11",
     "rimraf": "^2.6.2",
     "storybook-readme": "^3.3.0",

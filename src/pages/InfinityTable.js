@@ -1,4 +1,4 @@
-import { InfinityTable as Table } from 'antd-table-infinity';
+import { InfinityTable as Table } from '../components/Table';
 import React, { Component } from 'react';
 
 import { columns, fetchData } from '../stories/Table/mockData';
