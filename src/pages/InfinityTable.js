@@ -27,17 +27,39 @@ class App extends Component {
 
   render() {
     return (
-      <Table
-        key="key"
-        loading={this.state.loading}
-        onFetch={this.handleFetch}
-        pageSize={50}
-        columns={columns}
-        scroll={{ y: 450 }}
-        dataSource={this.state.data}
-        bordered
-        debug
-      />
+      <React.Fragment>
+        {/* Support columns props */}
+        <Table
+          key="key"
+          loading={this.state.loading}
+          onFetch={this.handleFetch}
+          pageSize={50}
+          columns={columns}
+          scroll={{ y: 450 }}
+          dataSource={this.state.data}
+          bordered
+          debug
+        />
+
+        {/* Support children */}
+        <Table
+          key="key"
+          loading={this.state.loading}
+          onFetch={this.handleFetch}
+          pageSize={10}
+          scroll={{ y: 450 }}
+          dataSource={this.state.data}
+          bordered
+          debug
+        >
+          <Table.Column title="Name" dataIndex="name" key="name"
+            render={(text, record, index) => (
+              <span>
+                {record.index}: {record.name}
+              </span>
+            )} />
+        </Table>
+      </React.Fragment>
     );
   }
 }

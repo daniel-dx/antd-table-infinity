@@ -199,6 +199,24 @@ class App extends Component {
         bordered
         debug
       />
+        // Column children version
+        // <Table
+        //   key="key"
+        //   loading={this.state.loading}
+        //   onFetch={this.handleFetch}
+        //   pageSize={10}
+        //   scroll={{ y: 450 }}
+        //   dataSource={this.state.data}
+        //   bordered
+        //   debug
+        // >
+        //   <Table.Column title="Name" dataIndex="name" key="name"
+        //     render={(text, record, index) => (
+        //       <span>
+        //         {record.index}: {record.name}
+        //       </span>
+        //     )} />
+        // </Table>
     );
   }
 }

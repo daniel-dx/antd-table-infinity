@@ -334,6 +334,7 @@ class InfinityTable extends PureComponent {
       forwardedRef,
       loading,
       columns,
+      children,
       ...rest
     } = this.props;
     const { startIndex, upperHeight, underHeight } = this.state;
@@ -355,6 +356,7 @@ class InfinityTable extends PureComponent {
           {...rest}
           ref={forwardedRef}
           columns={columns}
+          children={children}
           dataSource={dataSource.slice(startIndex, startIndex + pageSize)}
           pagination={false}
         />
@@ -362,6 +364,10 @@ class InfinityTable extends PureComponent {
     );
   }
 }
+
+InfinityTable.Column = Table.Column;
+InfinityTable.ColumnGroup = Table.ColumnGroup;
+
 InfinityTable.defaultProps = {
   // loading 效果， A visual react component for Loading status
   loadingIndicator: (
@@ -391,7 +397,7 @@ InfinityTable.propTypes = {
   onFetch: func, // 滚动到低部触发Fetch方法
   sumData: array, // 合计行
   dataSource: array.isRequired,
-  columns: array.isRequired,
+  columns: array,
   forwardedRef: object,
   debug: bool,
   pageSize: number,
