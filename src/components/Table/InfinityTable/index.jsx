@@ -1,7 +1,8 @@
 import React, { PureComponent, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { element, bool, number, array, object, func } from 'prop-types';
-import { Table, Spin } from 'antd';
+import Table from 'antd/lib/table';
+import Spin from 'antd/lib/spin';
 import throttle from 'lodash.throttle';
 
 const noop = () => {};
@@ -356,17 +357,15 @@ class InfinityTable extends PureComponent {
           {...rest}
           ref={forwardedRef}
           columns={columns}
-          children={children}
           dataSource={dataSource.slice(startIndex, startIndex + pageSize)}
           pagination={false}
-        />
+        >
+          {children}
+        </Table>
       </Fragment>
     );
   }
 }
-
-InfinityTable.Column = Table.Column;
-InfinityTable.ColumnGroup = Table.ColumnGroup;
 
 InfinityTable.defaultProps = {
   // loading 效果， A visual react component for Loading status
@@ -404,6 +403,11 @@ InfinityTable.propTypes = {
   loading: bool,
 };
 
-export default React.forwardRef((props, ref) => (
+const exportTable = React.forwardRef((props, ref) => (
   <InfinityTable {...props} forwardedRef={ref} />
-));
+))
+
+exportTable.Column = Table.Column;
+exportTable.ColumnGroup = Table.ColumnGroup;
+
+export default exportTable;

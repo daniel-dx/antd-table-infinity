@@ -12,7 +12,9 @@ import {
   oneOf,
   shape,
 } from 'prop-types';
-import { Table, Spin, Pagination } from 'antd';
+import Table from 'antd/lib/table';
+import Spin from 'antd/lib/spin';
+import Pagination from 'antd/lib/pagination';
 import throttle from 'lodash.throttle';
 
 const noop = () => {};

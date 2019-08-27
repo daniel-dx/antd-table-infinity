@@ -1,5 +1,5 @@
 import { bool, number, array, object, func } from 'prop-types';
-import { Table } from 'antd';
+import Table from 'antd/lib/table';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
