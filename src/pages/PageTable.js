@@ -1,8 +1,7 @@
 import { PageTable as Table } from '../components/Table';
 import React, { Component } from 'react';
 
-import '../../dist/index.css';
-
+import '../components/Table/index.less';
 import { columns } from '../stories/Table/mockData';
 
 import { random } from 'lodash';
@@ -70,6 +69,27 @@ class App extends Component {
   render() {
     const { page, data, loading } = this.state;
     return (
+      // <Table
+      //   key="key"
+      //   className="custom-classname"
+      //   pagination={{
+      //     position: 'bottom',
+      //     defaultCurrent: 21,
+      //     size: 'small',
+      //     className: 'custom-classname-pagination',
+      //   }}
+      //   loading={loading}
+      //   onFetch={this.handleFetch}
+      //   pageSize={100}
+      //   bidirectionalCachePages={1}
+      //   total={total}
+      //   size="small"
+      //   dataSource={[page, data]}
+      //   columns={columns}
+      //   scroll={{ x: 2500, y: 600 }}
+      //   bordered
+      //   debug
+      // />
       <Table
         key="key"
         className="custom-classname"
@@ -86,11 +106,17 @@ class App extends Component {
         total={total}
         size="small"
         dataSource={[page, data]}
-        columns={columns}
-        scroll={{ x: 2500, y: 600 }}
+        // scroll={{ x: 2500, y: 600 }}
         bordered
         debug
-      />
+      >
+        <Table.Column title="Name" dataIndex="name" key="name"
+          render={(text, record, index) => (
+            <span>
+              {record.index}: {record.name}
+            </span>
+          )} />
+      </Table>
     );
   }
 }

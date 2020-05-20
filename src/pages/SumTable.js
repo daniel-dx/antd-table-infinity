@@ -2,7 +2,7 @@ import { Spin } from 'antd';
 import { SumTable as Table } from '../components/Table';
 import React, { Component } from 'react';
 
-import '../../dist/index.css';
+import '../components/Table/index.less';
 
 import { columns, fetchData, sumData } from '../stories/Table/mockData';
 

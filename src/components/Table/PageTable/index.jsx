@@ -569,6 +569,7 @@ class InfinityTable extends Component {
       debug,
       forwardedRef,
       pagination,
+      children,
       ...rest
     } = this.props;
 
@@ -626,6 +627,7 @@ class InfinityTable extends Component {
           columns={columns}
           dataSource={dataSource}
           pagination={false}
+          children={children}
           className={`infinity-page-table ${
             rest.className ? rest.className : ''
           }`}
@@ -700,12 +702,16 @@ InfinityTable.propTypes = {
   bidirectionalCachePages: number.isRequired,
   total: number.isRequired,
   dataSource: array.isRequired,
-  columns: array.isRequired,
+  columns: array,
   forwardedRef: object,
   debug: bool,
   loading: bool.isRequired,
 };
 
-export default React.forwardRef((props, ref) => (
+const exportTable = React.forwardRef((props, ref) => (
   <InfinityTable {...props} forwardedRef={ref} />
-));
+))
+exportTable.Column = Table.Column;
+exportTable.ColumnGroup = Table.ColumnGroup;
+
+export default exportTable;
